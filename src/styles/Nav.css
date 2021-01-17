@@ -1,0 +1,30 @@
+.navbar {
+  height: 10vh;
+  background-color: #24bfde;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  fill: white;
+  width: 40px;
+  height: 40px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+ul li {
+  color: white;
+}
+
+ul .cart-icon {
+  fill: #0077b6;
+}
