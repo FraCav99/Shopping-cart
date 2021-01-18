@@ -8,13 +8,10 @@ import windows from './images/windows-logo.png';
 import samsung from './images/samsung-logo.png';
 import user1 from './images/user-1.jpeg';
 import user2 from './images/user-2.jpeg';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
 
 const App = () => {
   return (
     <div className="App">
-      <Nav />
       <div className="Hero">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 19l1.5-5h-4.5l7-9-1.5 5h4.5l-7 9z"/></svg>
         <h1>Your favourite electronics, all in one place!</h1>
@@ -71,7 +68,6 @@ const App = () => {
               </div>
             </div>
       </div>
-      <Footer />
     </div>
   );
 }

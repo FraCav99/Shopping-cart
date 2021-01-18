@@ -1,11 +1,18 @@
 import React from 'react';
-import Nav from './Nav';
+import '../styles/Shop.css';
+import Card from './Card';
 
 const Shop = () => {
     return (
         <div className="shop">
-            <Nav />
-            <h1>Hello from Shop</h1>
+            <div className="cards-grid">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
         </div>
     )
 }
