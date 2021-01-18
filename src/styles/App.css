@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Nunito", sans-serif;
+}
+
 .Hero {
   height: 90vh;
   background-color: #24bfde;
