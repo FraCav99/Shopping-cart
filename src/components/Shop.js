@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import loading from '../images/loading.gif';
 import '../styles/Shop.css';
 import Card from './Card';
@@ -25,13 +26,15 @@ const Shop = () => {
                 <div className="cards-grid">
                 {items.map((item) => {
                     return (
-                        <Card 
-                            key={item.id} 
-                            id={item.id}
-                            price={item.price}
-                            title={item.title}
-                            image={item.image}
-                        />
+                        <Link to={`/shop/${item.id}`}>
+                            <Card 
+                                key={item.id} 
+                                id={item.id}
+                                price={item.price}
+                                title={item.title}
+                                image={item.image}
+                            />
+                        </Link>
                     );
                 })}
                 </div>

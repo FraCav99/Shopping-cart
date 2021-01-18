@@ -8,6 +8,10 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .Hero {
   height: 90vh;
   background-color: #24bfde;
