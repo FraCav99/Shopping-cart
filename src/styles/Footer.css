@@ -5,3 +5,18 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.footer .sponsor {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width: 150px;
+}
+
+.footer .sponsor a .fakestore-logo {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
