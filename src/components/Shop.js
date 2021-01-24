@@ -10,6 +10,10 @@ const Shop = () => {
 
     useEffect(() => {
         fetchItems();
+
+        return () => {
+            setItems([]);
+        }
     }, [])
 
     const fetchItems = async () => {
@@ -26,7 +30,7 @@ const Shop = () => {
                 <div className="cards-grid">
                 {items.map((item) => {
                     return (
-                        <Link to={`/shop/${item.id}`}>
+                        <Link to={`/shop/${item.id}`} key={item.id} >
                             <Card 
                                 key={item.id} 
                                 id={item.id}

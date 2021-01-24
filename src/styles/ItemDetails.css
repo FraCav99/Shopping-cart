@@ -65,6 +65,14 @@
   border-radius: 5px;
 }
 
+.item-details-page .item-details .item-actions .quantity small {
+  display: block;
+  color: red;
+  width: 300px;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .item-details-page .item-details .item-actions button {
   width: 275px;
   cursor: pointer;
@@ -115,4 +123,11 @@
 
 .item-details-page .item-details .item-actions button {
   margin-top: 40px;
+}
+
+/* Media query */
+@media screen and (max-width: 800px) {
+  .item-details-page .item-details .item-actions .quantity small {
+    width: 100%;
+  }
 }
