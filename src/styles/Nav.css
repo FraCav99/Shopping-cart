@@ -29,6 +29,22 @@ ul li {
   color: white;
 }
 
+ul li:last-child {
+  position: relative;
+  padding-top: 3px;
+}
+
+ul li:last-child .basket-items-count {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: red;
+  border-radius: 100%;
+  top: 0;
+  right: 20px;
+  font-size: 12px;
+}
+
 ul .cart-icon {
   fill: #0077b6;
 }
