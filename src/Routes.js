@@ -15,14 +15,14 @@ const Routes = () => {
         <Router basename="/">
             <Nav cartItems={cartItems}/>
             <Switch>
-                <Route exact path="/" component={App} />
-                <Route exact path="/shop" component={Shop} />
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={App} />
+                <Route exact path={process.env.PUBLIC_URL + '/shop'} component={Shop} />
                 <Route 
-                    path="/shop/:id"
+                    path={process.env.PUBLIC_URL + '/shop/:id'}
                     render={(props) => <ItemDetails {...props} cartItems={cartItems} setCartItems={setCartItems}/>} 
                 />
-                <Route exact path="/cart" render={() => <Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
-                <Route exact path="/checkout" render={() => <Checkout setCartItems={setCartItems}/>} />
+                <Route exact path={process.env.PUBLIC_URL + '/cart'} render={() => <Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
+                <Route exact path={process.env.PUBLIC_URL + '/checkout'} render={() => <Checkout setCartItems={setCartItems}/>} />
             </Switch>
             <Footer />
         </Router>
