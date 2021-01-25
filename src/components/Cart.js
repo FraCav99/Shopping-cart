@@ -76,7 +76,7 @@ const Cart = ({cartItems, setCartItems}) => {
                                 </div>
                             </div>
                             <div className="product-subtotal column">
-                                <span>{cartItem.subtotal()}$</span>
+                                <span>{cartItem.subtotal().toFixed(2)}$</span>
                                 <button onClick={deleteItem} id={cartItem.id}>X</button>
                             </div>
                         </div>
@@ -90,6 +90,7 @@ const Cart = ({cartItems, setCartItems}) => {
                 <p>{cartItems
                     .map(item => item.subtotal())
                     .reduce((prevVal, currVal) => currVal + prevVal)
+                    .toFixed(2)
                 }$</p>
                 <Link to={'/checkout'}>
                     <button>Go to checkout</button>

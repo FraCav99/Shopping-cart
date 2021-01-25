@@ -49,12 +49,12 @@ const ItemDetails = ({ match, cartItems, setCartItems }) => {
     const addItemToCart = () => {
         const itemToAdd = {
             id: item.id,
-            price: item.price,
+            price: item.price.toFixed(2),
             title: item.title,
             image: item.image,
             quantity: 1,
             subtotal: function() {
-                return this.quantity * item.price;
+                return this.quantity * item.price.toFixed(2);
             }
         }
 
@@ -90,7 +90,7 @@ const ItemDetails = ({ match, cartItems, setCartItems }) => {
                         </div>
                         <div className="item-actions">
                             <p className="item-title">{item.title}</p>
-                            <p className="item-price">Price: {item.price}$</p>
+                            <p className="item-price">Price: {item.price.toFixed(2)}$</p>
                             <button onClick={addItemToCart}>Add to cart</button>
                             {goToCheckout && 
                                 <Link to={'/cart'}>
