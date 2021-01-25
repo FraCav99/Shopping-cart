@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.2a2359a8.chunk.css",
-    "main.js": "/shopping-cart/static/js/main.a9b88800.chunk.js",
-    "main.js.map": "/shopping-cart/static/js/main.a9b88800.chunk.js.map",
+    "main.js": "/shopping-cart/static/js/main.be0838da.chunk.js",
+    "main.js.map": "/shopping-cart/static/js/main.be0838da.chunk.js.map",
     "runtime-main.js": "/shopping-cart/static/js/runtime-main.b56c1ee8.js",
     "runtime-main.js.map": "/shopping-cart/static/js/runtime-main.b56c1ee8.js.map",
-    "static/js/2.af7a952d.chunk.js": "/shopping-cart/static/js/2.af7a952d.chunk.js",
-    "static/js/2.af7a952d.chunk.js.map": "/shopping-cart/static/js/2.af7a952d.chunk.js.map",
+    "static/js/2.bb1aa19d.chunk.js": "/shopping-cart/static/js/2.bb1aa19d.chunk.js",
+    "static/js/2.bb1aa19d.chunk.js.map": "/shopping-cart/static/js/2.bb1aa19d.chunk.js.map",
     "index.html": "/shopping-cart/index.html",
     "static/css/main.2a2359a8.chunk.css.map": "/shopping-cart/static/css/main.2a2359a8.chunk.css.map",
-    "static/js/2.af7a952d.chunk.js.LICENSE.txt": "/shopping-cart/static/js/2.af7a952d.chunk.js.LICENSE.txt",
+    "static/js/2.bb1aa19d.chunk.js.LICENSE.txt": "/shopping-cart/static/js/2.bb1aa19d.chunk.js.LICENSE.txt",
     "static/media/Nvidia_logo.svg.f5af8087.png": "/shopping-cart/static/media/Nvidia_logo.svg.f5af8087.png",
     "static/media/amd-logo.17a26f8a.png": "/shopping-cart/static/media/amd-logo.17a26f8a.png",
     "static/media/loading.f103a8e0.gif": "/shopping-cart/static/media/loading.f103a8e0.gif",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b56c1ee8.js",
-    "static/js/2.af7a952d.chunk.js",
+    "static/js/2.bb1aa19d.chunk.js",
     "static/css/main.2a2359a8.chunk.css",
-    "static/js/main.a9b88800.chunk.js"
+    "static/js/main.be0838da.chunk.js"
   ]
 }
