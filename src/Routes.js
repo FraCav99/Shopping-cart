@@ -6,6 +6,7 @@ import Cart from './components/Cart';
 import ItemDetails from './components/ItemDetails';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Checkout from './components/Checkout';
 
 const Routes = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -20,7 +21,8 @@ const Routes = () => {
                     path="/shop/:id"
                     render={(props) => <ItemDetails {...props} cartItems={cartItems} setCartItems={setCartItems}/>} 
                 />
-                <Route exact path="/cart" render={(props) => <Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
+                <Route exact path="/cart" render={() => <Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
+                <Route exact path="/checkout" render={() => <Checkout setCartItems={setCartItems}/>} />
             </Switch>
             <Footer />
         </Router>

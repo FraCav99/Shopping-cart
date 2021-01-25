@@ -3,12 +3,33 @@ import {Link} from 'react-router-dom';
 import '../styles/Cart.css';
 
 const Cart = ({cartItems, setCartItems}) => {
-
     const deleteItem = (ev) => {
-        const elementId = ev.target.parentNode.parentNode.id;
+        const elementId = ev.target.id;
         const filterArr = cartItems.filter(item => item.id !== +elementId ? item : null);
         setCartItems(filterArr);
-    }
+    };
+
+    const incrementQuantity = (ev) => {
+        const elementId = ev.target.id;
+        const updatedPrice = cartItems.map(
+            item => item.id === +elementId ?
+            {...item, quantity: item.quantity + 1} : item
+        );
+
+        setCartItems(updatedPrice);
+    };
+
+    const decrementQuantity = (ev) => {
+        const elementId = ev.target.id;
+
+        const updatedPrice = cartItems.map(
+            item => item.id === +elementId ?
+            item.quantity > 1 ? {...item, quantity: item.quantity - 1} : item
+            : item
+        );
+
+        setCartItems(updatedPrice);
+    };
 
     if (cartItems.length === 0) {
         return (
@@ -37,7 +58,7 @@ const Cart = ({cartItems, setCartItems}) => {
                     </div>
                     <div className="product-table-body">
                         {cartItems.map(cartItem => (
-                        <div className="product-item" key={cartItem.id} id={cartItem.id}>
+                        <div className="product-item" key={cartItem.id}>
                             <div className="product-name column">
                                 <div className="product-img">
                                     <img src={cartItem.image} alt="prod-pic" />
@@ -49,14 +70,14 @@ const Cart = ({cartItems, setCartItems}) => {
                             </div>
                             <div className="product-quantity column">
                                 <div className="quantity-setter">
-                                    <div><button>-</button></div>
+                                    <div><button id={cartItem.id} onClick={decrementQuantity}>-</button></div>
                                     <span>{cartItem.quantity}</span>
-                                    <div><button>+</button></div>
+                                    <div><button id={cartItem.id} onClick={incrementQuantity}>+</button></div>
                                 </div>
                             </div>
                             <div className="product-subtotal column">
                                 <span>{cartItem.subtotal()}$</span>
-                                <button onClick={deleteItem}>X</button>
+                                <button onClick={deleteItem} id={cartItem.id}>X</button>
                             </div>
                         </div>
                         ))}
@@ -66,8 +87,13 @@ const Cart = ({cartItems, setCartItems}) => {
 
             <div className="total-section">
                 <h2>Total</h2>
-                <p>99,99$</p>
-                <button>Go to checkout</button>
+                <p>{cartItems
+                    .map(item => item.subtotal())
+                    .reduce((prevVal, currVal) => currVal + prevVal)
+                }$</p>
+                <Link to={'/checkout'}>
+                    <button>Go to checkout</button>
+                </Link>
             </div>
         </div>
     )
