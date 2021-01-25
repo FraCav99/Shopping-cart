@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {HashRouter, Switch, Route} from 'react-router-dom';
 import App from './App';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
@@ -12,20 +12,20 @@ const Routes = () => {
     const [cartItems, setCartItems] = useState([]);
 
     return (
-        <Router basename="/">
+        <HashRouter>
             <Nav cartItems={cartItems}/>
             <Switch>
-                <Route exact path={process.env.PUBLIC_URL + '/'} component={App} />
-                <Route exact path={process.env.PUBLIC_URL + '/shop'} component={Shop} />
+                <Route exact path='/' component={App} />
+                <Route exact path='/shop' component={Shop} />
                 <Route 
-                    path={process.env.PUBLIC_URL + '/shop/:id'}
+                    path='/shop/:id'
                     render={(props) => <ItemDetails {...props} cartItems={cartItems} setCartItems={setCartItems}/>} 
                 />
-                <Route exact path={process.env.PUBLIC_URL + '/cart'} render={() => <Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
-                <Route exact path={process.env.PUBLIC_URL + '/checkout'} render={() => <Checkout setCartItems={setCartItems}/>} />
+                <Route exact path='/cart' render={() => <Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
+                <Route exact path='/checkout' render={() => <Checkout setCartItems={setCartItems}/>} />
             </Switch>
             <Footer />
-        </Router>
+        </HashRouter>
     );
 }
 
