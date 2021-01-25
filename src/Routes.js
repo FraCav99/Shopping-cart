@@ -12,7 +12,7 @@ const Routes = () => {
     const [cartItems, setCartItems] = useState([]);
 
     return (
-        <Router>
+        <Router basename="/">
             <Nav cartItems={cartItems}/>
             <Switch>
                 <Route exact path="/" component={App} />
