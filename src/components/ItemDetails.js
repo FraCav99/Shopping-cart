@@ -1,17 +1,22 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import RelatedProds from './RelatedProds';
 import '../styles/ItemDetails.css';
 import loading from '../images/loading.gif';
 
-const ItemDetails = ({ match }) => {
+const ItemDetails = ({ match, cartItems, setCartItems }) => {
     const [item, setItem] = useState({});
     const [items, setItems] = useState([]);
+    const [goToCheckout, setGoToCheckout] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [isValid, setIsValid] = useState(true);
 
     useEffect(() => {
         setLoader();
+
+        return () => {
+            setGoToCheckout(false);
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoaded]);
 
@@ -41,18 +46,30 @@ const ItemDetails = ({ match }) => {
         setItems([]);
     }
 
-    const checkInput = () => {
-        const quantity = document.getElementById('item-quantity');
-        const regex=/^[0-9]+$/;
-
-        if (!quantity.value.match(regex) || quantity.value < 1) {
-            setIsValid(false);
-        } else {
-            setIsValid(true);
+    const addItemToCart = () => {
+        const itemToAdd = {
+            id: item.id,
+            price: item.price,
+            title: item.title,
+            image: item.image,
+            quantity: 1,
+            subtotal: function() {
+                return this.quantity * item.price;
+            }
         }
+
+        const found = cartItems.some(cartItem => cartItem.id === itemToAdd.id);
+
+        if (found) {
+            const filteredArr = cartItems.map(item => (item.id === itemToAdd.id) ? itemToAdd : item);
+            setCartItems(filteredArr);
+        } else {
+            setCartItems([...cartItems, itemToAdd]);
+        }
+
+        setGoToCheckout(true);
     }
 
-    // (Object.keys(item).length === 0 && item.constructor === Object) || items.length === 0
     if (!isLoaded) {
         return (
             <div className="item-details-page">
@@ -74,12 +91,12 @@ const ItemDetails = ({ match }) => {
                         <div className="item-actions">
                             <p className="item-title">{item.title}</p>
                             <p className="item-price">Price: {item.price}$</p>
-                            <div className="quantity">
-                                <span>Q.ty</span>
-                                <input type="number" id="item-quantity" min="1" max="99"/>
-                                {!isValid && <small>Must be a number greater or equal to 1</small>}
-                            </div>
-                            <button onClick={checkInput}>Add to cart</button>
+                            <button onClick={addItemToCart}>Add to cart</button>
+                            {goToCheckout && 
+                                <Link to={'/cart'}>
+                                    <button>Proceed to checkout</button>
+                                </Link>
+                            }
                         </div>
                     </div>
                     <div className="item-description">
