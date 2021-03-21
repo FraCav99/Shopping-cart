@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import '../styles/Cart.css';
 
 const Cart = ({cartItems, setCartItems}) => {
+    const urlToImage = 'https://fakestoreapi.herokuapp.com/img/';
+
     const deleteItem = (ev) => {
         const elementId = ev.target.id;
         const filterArr = cartItems.filter(item => item.id !== +elementId ? item : null);
@@ -61,7 +63,7 @@ const Cart = ({cartItems, setCartItems}) => {
                         <div className="product-item" key={cartItem.id}>
                             <div className="product-name column">
                                 <div className="product-img">
-                                    <img src={cartItem.image} alt="prod-pic" />
+                                    <img src={urlToImage + cartItem.image.substr(29)} alt="prod-pic" />
                                 </div>
                                 <span>{cartItem.title}</span>
                             </div>

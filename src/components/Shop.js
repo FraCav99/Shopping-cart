@@ -7,6 +7,7 @@ import Card from './Card';
 
 const Shop = () => {
     const [items, setItems] = useState([]);
+    const urlToImage = 'https://fakestoreapi.herokuapp.com/img/';
 
     useEffect(() => {
         fetchItems();
@@ -17,7 +18,7 @@ const Shop = () => {
     }, [])
 
     const fetchItems = async () => {
-        const data = await fetch('https://fakestoreapi.com/products/category/electronics');
+        const data = await fetch('https://fakestoreapi.herokuapp.com/products/category/electronics');
         const items = await data.json();
 
         setItems(items);
@@ -36,7 +37,7 @@ const Shop = () => {
                                 id={item.id}
                                 price={item.price.toFixed(2)}
                                 title={item.title}
-                                image={item.image}
+                                image={urlToImage + item.image.substr(29)}
                             />
                         </Link>
                     );

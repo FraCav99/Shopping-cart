@@ -4,6 +4,7 @@ import Card from './Card';
 import '../styles/RelatedProds.css';
 
 const RelatedProds = ({ match, relatedItems, resetLoader }) => {
+    const urlToImage = 'https://fakestoreapi.herokuapp.com/img/';
 
     return (
         <div className="related-products-container">
@@ -18,7 +19,7 @@ const RelatedProds = ({ match, relatedItems, resetLoader }) => {
                                 id={item.id}
                                 price={item.price.toFixed(2)}
                                 title={item.title}
-                                image={item.image}
+                                image={urlToImage + item.image.substr(29)}
                             />
                         </Link>
                     ))

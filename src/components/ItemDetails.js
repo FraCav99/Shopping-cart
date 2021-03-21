@@ -10,6 +10,7 @@ const ItemDetails = ({ match, cartItems, setCartItems }) => {
     const [items, setItems] = useState([]);
     const [goToCheckout, setGoToCheckout] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+    const urlToImage = 'https://fakestoreapi.herokuapp.com/img/';
 
     useEffect(() => {
         setLoader();
@@ -21,13 +22,13 @@ const ItemDetails = ({ match, cartItems, setCartItems }) => {
     }, [isLoaded]);
 
     const fetchItem = async () => {
-        const data = await fetch(`https://fakestoreapi.com/products/${match.params.id}`);
+        const data = await fetch(`https://fakestoreapi.herokuapp.com/products/${match.params.id}`);
         const fetchedItem = await data.json();
         setItem(fetchedItem);
     };
 
     const fetchItems = async () => {
-        const data = await fetch(`https://fakestoreapi.com/products/category/electronics`);
+        const data = await fetch(`https://fakestoreapi.herokuapp.com/products/category/electronics`);
         const fetchedItems = await data.json();
         setItems(fetchedItems);
     }
@@ -86,7 +87,7 @@ const ItemDetails = ({ match, cartItems, setCartItems }) => {
                 <div className="wrapper">
                     <div className="item-details">
                         <div className="image__container">
-                            <img src={item.image} alt="product-pic" />
+                            <img src={urlToImage + item.image.substr(29)} alt="product-pic" />
                         </div>
                         <div className="item-actions">
                             <p className="item-title">{item.title}</p>
